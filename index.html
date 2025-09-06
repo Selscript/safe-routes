@@ -5,6 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safe Routes</title>
     <link rel="stylesheet" href="output.css">
+    <style>
+        .testimonial-content {
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .testimonial-content.fade-out {
+            opacity: 0;
+        }
+        
+        .testimonial-content.fade-in {
+            opacity: 1;
+        }
+        
+        .nav-button {
+            transition: all 0.2s ease;
+        }
+        
+        .nav-button:hover {
+            transform: scale(1.05);
+            background-color: #f3f4f6;
+        }
+        
+        .dot-indicator {
+            transition: all 0.3s ease;
+        }
+        
+        .dot-indicator.active {
+            background-color: #2563eb;
+            transform: scale(1.2);
+        }
+        
+        @media (max-width: 768px) {
+            .testimonial-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .testimonial-card {
+                max-width: 100%;
+            }
+            
+            .nav-buttons {
+                order: 3;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+        }
+    </style>
 </head>
 <body style="font-family: sans-serif;">
     <main  class="grid grid-cols-8 h-screen w-full px-8 py-5 ">
@@ -292,82 +340,88 @@
         </div>
 
         <!-- Right Section - Visa Application Status -->
-        <div class="bg-gradient-to-br from-blue-600 to-blue-400 rounded-3xl p-8 text-white">
-            <h2 class="text-2xl font-semibold mb-8">Visa Application Status</h2>
-            
-            <div class="space-y-4">
-                <!-- Completed Item -->
-                <div class="bg-white bg-opacity-20 rounded-2xl p-4 flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+         <div class="flex justify-center items-center">
+             <div class="bg-gradient-to-br from-blue-900 w-full to-blue-400 rounded-3xl p-8 text-white">
+                 <h2 class="text-2xl font-semibold mb-8">Visa Application Status</h2>
+                 
+                 <div class="space-y-4">
+                     <!-- Completed Item -->
+                     <div class="bg-white bg-opacity-20 rounded-4xl p-4 flex items-center justify-between">
+                         <div class="flex items-center gap-3">
+                             <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                 </svg>
+                             </div>
+                             <span class="text-[18px] bg-gradient-to-b from-blue-900 to-blue-400 rounded-md  bg-clip-text text-transparent ">Document Review</span>
+                         </div>
+                         <span class="text-[18px] bg-gradient-to-b from-blue-900 to-blue-400 rounded-md  bg-clip-text text-transparent  font-semibold">Completed</span>
+                     </div>
+     
+                     <!-- Completed Item -->
+                     <div class="bg-white bg-opacity-20 rounded-4xl p-4 flex items-center justify-between">
+                         <div class="flex items-center gap-3">
+                             <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                 </svg>
+                             </div>
+                             <span class="text-[18px] bg-gradient-to-b from-blue-900 to-blue-400 rounded-md  bg-clip-text text-transparent ">Application Submitted</span>
+                         </div>
+                         <span class="text-[18px] bg-gradient-to-b from-blue-900 to-blue-400 rounded-md  bg-clip-text text-transparent  font-semibold">Completed</span>
+                     </div>
+     
+                     <!-- In Progress Item -->
+                     <div class=" border border-white border-opacity-50  bg-[#ffffff25] rounded-4xl p-4 flex items-center justify-between">
+                         <div class="flex items-center gap-3">
+                             <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                             </div>
+                             <span class="font-medium">Document Review</span>
+                         </div>
+                         <span class="text-white font-semibold">In Progress</span>
+                     </div>
+                     <div class=" border border-white border-opacity-50   rounded-4xl p-4 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                                <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                            </div>
+                            <span class="font-medium">Document Review</span>
                         </div>
-                        <span class="font-medium">Document Review</span>
+                        <span class="text-white font-semibold">Pending</span>
                     </div>
-                    <span class="text-blue-200 font-medium">Completed</span>
-                </div>
-
-                <!-- Completed Item -->
-                <div class="bg-white bg-opacity-20 rounded-2xl p-4 flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                        </div>
-                        <span class="font-medium">Application Submitted</span>
-                    </div>
-                    <span class="text-blue-200 font-medium">Completed</span>
-                </div>
-
-                <!-- In Progress Item -->
-                <div class="bg-white bg-opacity-30 rounded-2xl p-4 flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                            <div class="w-2 h-2 bg-white rounded-full"></div>
-                        </div>
-                        <span class="font-medium">Document Review</span>
-                    </div>
-                    <span class="text-blue-100 font-medium">In Progress</span>
-                </div>
-
-                <!-- Pending Item -->
-                <div class="bg-white bg-opacity-10 rounded-2xl p-4 flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-6 h-6 border-2 border-white border-opacity-50 rounded-full"></div>
-                        <span class="font-medium opacity-75">Document Review</span>
-                    </div>
-                    <span class="text-blue-200 font-medium opacity-75">Pending</span>
-                </div>
-            </div>
-        </div>
+     
+                    
+                 </div>
+             </div>
+         </div>
     </div>
 
-    <div class="flex flex-col items-center py-16 px-16 bg-white">
+    <!-- Testimonials Section -->
+    <div class="flex flex-col items-center py-16 px-8 md:px-16 bg-white">
         <!-- Header -->
-        <h1 class="text-[3rem] font-[600] text-center mb-4">What Our Clients Say</h1>
-        <p class="text-gray-500 text-lg text-center max-w-2xl mb-16">Don't just take our word for it. Here's what our satisfied clients have to say about their immigration journey with us.</p>
+        <h1 class="text-4xl md:text-5xl font-semibold text-center mb-4 text-gray-900">What Our Clients Say</h1>
+        <p class="text-gray-500 text-lg text-center max-w-2xl mb-16 leading-relaxed">
+            Don't just take our word for it. Here's what our satisfied clients have to say about their immigration journey with us.
+        </p>
         
         <!-- Testimonial Section -->
-        <div class="flex items-center justify-center w-full max-w-4xl">
+        <div class="testimonial-container flex items-center justify-center w-full max-w-5xl">
             <!-- Left Arrow -->
-            <button class="p-2 hover:bg-gray-100 rounded-full mr-8">
+            <button id="prevBtn" class="nav-button p-3 hover:bg-gray-100 rounded-full mr-6 md:mr-8 transition-all duration-200 flex-shrink-0">
                 <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
             </button>
             
             <!-- Testimonial Card -->
-            <div class="flex items-center gap-8 bg-gray-50 rounded-2xl p-8 max-w-2xl">
+            <div class="testimonial-card flex items-center gap-6 md:gap-8 bg-gray-50 rounded-2xl p-6 md:p-8 max-w-3xl w-full">
                 <!-- Profile Image -->
                 <div class="flex-shrink-0">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Jan Dittrich" class="w-24 h-24 rounded-xl object-cover">
+                    <img id="profileImage" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Profile" class="w-20 h-20 md:w-24 md:h-24 rounded-xl object-cover">
                 </div>
                 
                 <!-- Content -->
-                <div class="flex flex-col">
+                <div class="testimonial-content flex flex-col">
                     <!-- Stars -->
                     <div class="flex gap-1 mb-4">
                         <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -388,17 +442,17 @@
                     </div>
                     
                     <!-- Quote -->
-                    <blockquote class="text-gray-800 text-lg font-medium mb-4">
+                    <blockquote id="testimonialQuote" class="text-gray-800 text-lg md:text-xl font-medium mb-4 leading-relaxed">
                         "Big effort - high quality. Best Framer content out there."
                     </blockquote>
                     
                     <!-- Name -->
-                    <cite class="text-gray-500 not-italic">Jan Dittrich</cite>
+                    <cite id="testimonialAuthor" class="text-gray-500 not-italic font-medium">Jan Dittrich</cite>
                 </div>
             </div>
             
             <!-- Right Arrow -->
-            <button class="p-2 hover:bg-gray-100 rounded-full ml-8">
+            <button id="nextBtn" class="nav-button p-3 hover:bg-gray-100 rounded-full ml-6 md:ml-8 transition-all duration-200 flex-shrink-0">
                 <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
@@ -406,123 +460,250 @@
         </div>
         
         <!-- Dots Indicator -->
-        <div class="flex gap-2 mt-8">
-            <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
-            <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
-            <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+        <div class="nav-buttons flex gap-3 mt-8">
+            <div class="dot-indicator w-3 h-3 bg-blue-600 rounded-full cursor-pointer active" data-index="0"></div>
+            <div class="dot-indicator w-3 h-3 bg-gray-300 rounded-full cursor-pointer" data-index="1"></div>
+            <div class="dot-indicator w-3 h-3 bg-gray-300 rounded-full cursor-pointer" data-index="2"></div>
         </div>
     </div>
 
-    <div class="bg-gradient-to-r from-blue-600 to-blue-400 rounded-3xl mx-8 my-16 overflow-hidden relative">
-        <div class="grid grid-cols-2 min-h-[600px]">
-            <!-- Left Section - Contact Info -->
-            <div class="p-16 text-white flex flex-col justify-between">
-                <!-- Header -->
-                <div>
-                    <h1 class="text-5xl font-bold mb-6">Get in touch</h1>
-                    <p class="text-blue-100 text-lg mb-12 max-w-md leading-relaxed">Ready to start your immigration journey? Contact us today for a free consultation and personalized guidance.</p>
-                </div>
-                
-                <!-- Contact Details -->
+    <div class="w-full flex justify-center items-center p-5 mx-auto">
+        <div class="relative grid md:grid-cols-2 lg:grid-cols-5 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-600 to-blue-800">
+            <!-- Left Side (Blue Gradient) -->
+            <div class="lg:col-span-2 text-white p-10 md:p-12">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Get in touch</h1>
+                <p class="text-blue-200 mb-12">
+                    Ready to start your immigration journey? Contact us today for a free consultation and personalized guidance.
+                </p>
+
                 <div class="space-y-8">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Office</h3>
-                        <p class="text-blue-100">150 Old Park Ln, London W1K 1QZ</p>
+                    <!-- Office -->
+                    <div class="grid grid-cols-3 gap-4">
+                        <h2 class="font-semibold text-lg col-span-1">Office</h2>
+                        <p class="text-blue-200 col-span-2">150 Old Park Ln, London W1K 1QZ</p>
                     </div>
-                    
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Email</h3>
-                        <p class="text-blue-100">hello@refit.com</p>
+                    <!-- Email -->
+                    <div class="grid grid-cols-3 gap-4">
+                        <h2 class="font-semibold text-lg col-span-1">Email</h2>
+                        <p class="text-blue-200 col-span-2">hello@refit.com</p>
                     </div>
-                    
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Telephone</h3>
-                        <p class="text-blue-100">07716 534984</p>
-                    </div>
-                </div>
-                
-                <!-- Social Media -->
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Follow us</h3>
-                    <div class="flex gap-4">
-                        <!-- Instagram -->
-                        <div class="w-8 h-8 bg-white bg-opacity-20 rounded flex items-center justify-center">
-                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </div>
-                        <!-- TikTok -->
-                        <div class="w-8 h-8 bg-white bg-opacity-20 rounded flex items-center justify-center">
-                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                            </svg>
-                        </div>
-                        <!-- X (Twitter) -->
-                        <div class="w-8 h-8 bg-white bg-opacity-20 rounded flex items-center justify-center">
-                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                            </svg>
-                        </div>
+                    <!-- Telephone -->
+                    <div class="grid grid-cols-3 gap-4">
+                        <h2 class="font-semibold text-lg col-span-1">Telephone</h2>
+                        <p class="text-blue-200 col-span-2">07716 534984</p>
                     </div>
                 </div>
+
+                <div class="mt-16">
+                    <h2 class="font-semibold text-lg mb-4">Follow us</h2>
+                    <div class="flex space-x-5">
+                        <!-- Instagram Icon -->
+                        <a href="#" class="text-white hover:text-blue-200">
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0-2a7 7 0 110 14 7 7 0 010-14zm6.406-2.88a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <!-- TikTok Icon -->
+                        <a href="#" class="text-white hover:text-blue-200">
+                             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-2.43.05-4.86-.95-6.43-2.88-1.57-1.92-2.34-4.41-2.34-6.87 0-.01 0-.01 0-.02 0-2.44 1.01-4.86 2.55-6.42 1.54-1.56 3.6-2.38 5.75-2.41.02-.01.02-.01.03-.01.01 0 .01 0 .01 0 1.48-.02 2.96-.01 4.44-.02 0 1.53-.01 3.07-.01 4.6 0 .8-.34 1.56-.94 2.12-.61.56-1.38.84-2.18.83-.81-.01-1.58-.29-2.19-.85-.61-.56-.95-1.32-.95-2.13 0-1.53.01-3.07.01-4.6z" />
+                            </svg>
+                        </a>
+                        <!-- X Icon -->
+                        <a href="#" class="text-white hover:text-blue-200">
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
             </div>
             
-            <!-- Right Section - Contact Form -->
-            <div class="bg-white p-12 flex flex-col justify-center">
-                <form class="space-y-6">
-                    <!-- Name Field -->
-                    <div>
-                        <label class="block text-gray-600 text-sm mb-2">Name</label>
-                        <input type="text" placeholder="Jane Smith" class="w-full px-4 py-3 bg-gray-50 border-0 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                    </div>
-                    
-                    <!-- Email Field -->
-                    <div>
-                        <label class="block text-gray-600 text-sm mb-2">Email</label>
-                        <input type="email" placeholder="jane@framer.com" class="w-full px-4 py-3 bg-gray-50 border-0 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                    </div>
-                    
-                    <!-- Phone Field -->
-                    <div>
-                        <label class="block text-gray-600 text-sm mb-2">Phone</label>
-                        <input type="tel" placeholder="+00 1234567890" class="w-full px-4 py-3 bg-gray-50 border-0 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                    </div>
-                    
-                    <!-- Service Dropdown -->
-                    <div>
-                        <label class="block text-gray-600 text-sm mb-2">Service Interested in</label>
-                        <div class="relative">
-                            <select class="w-full px-4 py-3 bg-gray-50 border-0 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none text-gray-500">
-                                <option>Select...</option>
-                                <option>Schengen Visa</option>
-                                <option>UK Immigration</option>
-                                <option>Australian Immigration</option>
-                                <option>Education Support</option>
-                                <option>Travel Services</option>
-                            </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
+            <!-- Right Side (Form) -->
+            <div class="relative lg:col-span-3 p-8">
+                <div class="relative bg-white p-10 md:p-12 rounded-2xl h-full">
+                    <form action="#" method="POST" class="space-y-6">
+                        <!-- Name -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <div class="mt-1">
+                                <input type="text" name="name" id="name" autocomplete="name" placeholder="Jane Smith" class="block w-full rounded-md bg-gray-100 border-transparent focus:border-blue-500 focus:bg-white focus:ring-0 px-4 py-3">
                             </div>
                         </div>
-                    </div>
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <div class="mt-1">
+                                <input type="email" name="email" id="email" autocomplete="email" placeholder="jane@framer.com" class="block w-full rounded-md bg-gray-100 border-transparent focus:border-blue-500 focus:bg-white focus:ring-0 px-4 py-3">
+                            </div>
+                        </div>
+                        <!-- Phone -->
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                            <div class="mt-1">
+                                <input type="tel" name="phone" id="phone" autocomplete="tel" placeholder="+00 1234567890" class="block w-full rounded-md bg-gray-100 border-transparent focus:border-blue-500 focus:bg-white focus:ring-0 px-4 py-3">
+                            </div>
+                        </div>
+                        <!-- Service Interested In -->
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-gray-700">Service Interested in</label>
+                            <div class="mt-1">
+                                <select id="service" name="service" class="block w-full rounded-md bg-gray-100 border-transparent focus:border-blue-500 focus:bg-white focus:ring-0 px-4 py-3 text-gray-500">
+                                    <option>Select...</option>
+                                    <option>Immigration Consultation</option>
+                                    <option>Visa Application</option>
+                                    <option>Legal Advice</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Message -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                            <div class="mt-1">
+                                <textarea id="message" name="message" rows="4" placeholder="+00 1234567890" class="block w-full rounded-md bg-gray-100 border-transparent focus:border-blue-500 focus:bg-white focus:ring-0 px-4 py-3"></textarea>
+                            </div>
+                        </div>
+                        <!-- Submit Button -->
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
                     
-                    <!-- Message Field -->
-                    <div>
-                        <label class="block text-gray-600 text-sm mb-2">Message</label>
-                        <textarea rows="4" placeholder="+00 1234567890" class="w-full px-4 py-3 bg-gray-50 border-0 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"></textarea>
-                    </div>
-                    
-                    <!-- Submit Button -->
-                    <button type="submit" class="w-full bg-gray-900 text-white py-4 rounded-lg font-medium hover:bg-gray-800 transition-colors">
-                        Submit
-                    </button>
-                </form>
+                
+                </div>
+
+               
+            </div>
+            
+            <!-- <div class="absolute inset-y-0 right-0 w-1.5 bg-gradient-to-b from-cyan-300 to-blue-500"></div> -->
+
+        </div>
+    </div>
+<hr>
+<footer class="bg-gray-50 py-8 mt-16">
+    <div class="max-w-4xl mx-auto px-8">
+        <div class="flex flex-col items-center justify-center text-center space-y-4">
+            <!-- Logo -->
+            <img src="./assets/navLogo.avif" alt="Safe Routes Logo" class="h-16 w-auto">
+            
+            <!-- Copyright Text -->
+            <div class="space-y-1">
+                <h1 class="text-gray-800 font-semibold text-lg">Copyright © 2024 Safe Routes</h1>
+                <h1 class="text-gray-600 text-base">All rights reserved.</h1>
             </div>
         </div>
-        
-        
     </div>
+</footer>
+    <script>
+        // Testimonials data
+        const testimonials = [
+            {
+                quote: "Big effort - high quality. Best Framer content out there.",
+                author: "Jan Dittrich",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+            },
+            {
+                quote: "I'm building a new website and it's absolutely ridiculous how valuable your content has been.",
+                author: "Michael Riddering",
+                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+            },
+            {
+                quote: "Way too much value for free to be honest.",
+                author: "James Traf",
+                image: "https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=150&h=150&fit=crop&crop=face"
+            }
+        ];
+
+        let currentIndex = 0;
+        const testimonialContent = document.querySelector('.testimonial-content');
+        const testimonialQuote = document.getElementById('testimonialQuote');
+        const testimonialAuthor = document.getElementById('testimonialAuthor');
+        const profileImage = document.getElementById('profileImage');
+        const dots = document.querySelectorAll('.dot-indicator');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        // Function to update testimonial content
+        function updateTestimonial(index) {
+            // Fade out current content
+            testimonialContent.classList.add('fade-out');
+            
+            setTimeout(() => {
+                // Update content
+                testimonialQuote.textContent = `"${testimonials[index].quote}"`;
+                testimonialAuthor.textContent = testimonials[index].author;
+                profileImage.src = testimonials[index].image;
+                profileImage.alt = testimonials[index].author;
+                
+                // Update dots
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('active');
+                        dot.classList.remove('bg-gray-300');
+                        dot.classList.add('bg-blue-600');
+                    } else {
+                        dot.classList.remove('active');
+                        dot.classList.remove('bg-blue-600');
+                        dot.classList.add('bg-gray-300');
+                    }
+                });
+                
+                // Fade in new content
+                testimonialContent.classList.remove('fade-out');
+                testimonialContent.classList.add('fade-in');
+            }, 150);
+        }
+
+        // Function to go to next testimonial
+        function nextTestimonial() {
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            updateTestimonial(currentIndex);
+        }
+
+        // Function to go to previous testimonial
+        function prevTestimonial() {
+            currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+            updateTestimonial(currentIndex);
+        }
+
+        // Event listeners
+        if (nextBtn) nextBtn.addEventListener('click', nextTestimonial);
+        if (prevBtn) prevBtn.addEventListener('click', prevTestimonial);
+
+        // Dot click handlers
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateTestimonial(currentIndex);
+            });
+        });
+
+        // Auto-play testimonials (optional)
+        let autoPlay = setInterval(nextTestimonial, 5000);
+
+        // Pause auto-play on hover
+        const testimonialSection = document.querySelector('.testimonial-container');
+        if (testimonialSection) {
+            testimonialSection.addEventListener('mouseenter', () => {
+                clearInterval(autoPlay);
+            });
+
+            testimonialSection.addEventListener('mouseleave', () => {
+                autoPlay = setInterval(nextTestimonial, 5000);
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevTestimonial();
+            } else if (e.key === 'ArrowRight') {
+                nextTestimonial();
+            }
+        });
+    </script>
 </body>
 </html>
